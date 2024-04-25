@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista JS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #333;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #444;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: #fff;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="number"],
+    select {
+      padding: 8px;
+      margin: 5px auto;
+      border-radius: 4px;
+      border: 1px solid #666;
+      width: 100%;
+      box-sizing: border-box;
+      display: block;
+      background-color: #555;
+      color: #fff;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+      margin: 10px auto;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #resultado {
+      margin-top: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 5px;
+    }
+
+    .carousel-control-prev {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+    }
+
+    .carousel-control-next {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-12">
+              <h1>Exercicio 1</h1>
+              <h4>Resultado aparecendo em um alert ao abrir a página.</h4>
+            </div>
+          </div>
+          <script>
+            let num1 = 10;
+            let num2 = 100;
+
+            let soma = parseInt(num1) + parseInt(num2);
+            let subtracao = parseInt(num2) - parseInt(num1);
+            let divisao = parseInt(num2) / parseInt(num1);
+            let multiplicacao = parseInt(num1) * parseInt(num2);
+
+            alert("Contas básicas com os valores 10 e 100:\n\nSoma: " + soma + "\nSubtração: " + subtracao + "\nDivisão: " + divisao + "\nMultiplicação: " +
+              multiplicacao);
+          </script>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-12">
+              <h1>Exercicio 2</h1>
+              <h4>Loop de 10 até 100.</h4>
+              <script>
+                for (let i = 10; i <= 100; i++) {
+                  document.write(i + " - ");
+                }
+              </script>
+              <p></p>
+              <p>
+                Lógica realizada:
+                for (let i = 10; i <= 100; i++) { document.write(i + " - " ); } </p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-12">
+              <h1>Exercicio 3</h1>
+              <script>
+                let num = 5;
+                document.write("<h4>Tabuada do 5:</h4>");
+                for (let i = 1; i <= 10; i++) {
+                  document.write(num + " * " + i + " = " + (num * i) + "<br>");
+                }
+              </script>
+              <p></p>
+
+              <p> Lógica realizada:</p>
+              <p>let num = 5;
+
+                for (let i = 1; i <= 10; i++) { document.write(num + " * " + i + " = " + (num * i) + "<br>" ); }</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-12">
+              <h1>Exercicio 4</h1>
+              <label for="numero">Digite um número:</label>
+              <input type="number" id="numero">
+              <button onclick="tabuada()">Visualizar os valores da tabuada</button>
+
+              <div id="tabuada"></div>
+
+              <script>
+                function tabuada() {
+                  let num = document.getElementById("numero").value;
+                  num = parseInt(num);
+
+                  if (isNaN(num)) {
+                    alert("Digite um valor válido");
+                    return;
+                  }
+
+                  let resultado = "<h3>Tabuada do " + num + ":</h3>";
+                  for (let i = 1; i <= 10; i++) {
+                    resultado += num + " x " + i + " = " + (num * i) + "<br>";
+                  }
+
+                  document.getElementById("tabuada").innerHTML = resultado;
+                }
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-12">
+              <h1>Exercicio 5</h1>
+              <label for="valor1">Valor 1:</label>
+              <input type="number" id="valor1"><br><br>
+
+              <label for="operacao">Operação:</label>
+              <select id="operacao">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+              </select><br><br>
+
+              <label for="valor2">Valor 2:</label>
+              <input type="number" id="valor2"><br><br>
+
+              <button onclick="calcular()">Calcular</button><br><br>
+
+              <div id="resultado"></div>
+
+              <script>
+                function calcular() {
+                  let valor1 = parseFloat(document.getElementById("valor1").value);
+                  let operacao = document.getElementById("operacao").value;
+                  let valor2 = parseFloat(document.getElementById("valor2").value);
+                  let resultado;
+
+                  if (isNaN(valor1) || isNaN(valor2)) {
+                    document.getElementById("resultado").innerText = "Por favor, insira valores numéricos válidos.";
+                    return;
+                  }
+
+                  switch (operacao) {
+                    case "+":
+                      resultado = valor1 + valor2;
+                      break;
+                    case "-":
+                      resultado = valor1 - valor2;
+                      break;
+                    case "*":
+                      resultado = valor1 * valor2;
+                      break;
+                    case "/":
+                      if (valor2 === 0) {
+                        document.getElementById("resultado").innerText = "Erro! Divisão por zero.";
+                        return;
+                      }
+                      resultado = valor1 / valor2;
+                      break;
+                    default:
+                      document.getElementById("resultado").innerText = "Operação inválida.";
+                      return;
+                  }
+                  document.getElementById("resultado").innerText = "Resultado: " + resultado;
+                }
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-12">
+              <h1>Exercicio 6</h1>
+              <div id="valoresPares"></div>
+
+              <script>
+                const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                let pares = "<p>Percorrendo os valores de 1 até 10 e mostrando apenas os valores pares:</p><ul>";
+
+
+                for (let i = 0; i < array.length; i++) {
+
+                  if (array[i] % 2 === 0) {
+                    pares += "<li>" + array[i] + "</li>";
+                  }
+                }
+
+                pares += "</ul>";
+
+                document.getElementById("valoresPares").innerHTML = pares;
+              </script>
+              <p></p>
+              <p>Lógica realizada:</p>
+              <p>const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];</p>
+              <p>for (let i = 0; i < array.length; i++) { if (array[i] % 2===0) { pares +="<li>" + array[i] + "</li>" ;
+                  } } pares +="</ul>" ; document.getElementById("valoresPares").innerHTML=pares;</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-12">
+              <h1>Exercicio 7</h1>
+              <label for="custoFabrica">Custo de Fábrica:</label>
+              <input type="number" id="custoFabrica"><br><br>
+
+              <label for="percDistribuidor">% Distribuidor:</label>
+              <input type="number" id="percDistribuidor"><br><br>
+
+              <label for="percImpostos">% Impostos:</label>
+              <input type="number" id="percImpostos"><br><br>
+
+              <button onclick="calcularCustoFinal()">Calcular</button><br><br>
+
+              <label for="valorfinal">Valor Final:</label>
+              <input type="number" id="valorfinal" readonly><br><br>
+
+              <script>
+                function calcularCustoFinal() {
+                  let custoFabrica = parseFloat(document.getElementById("custoFabrica").value);
+                  let percDistribuidor = parseFloat(document.getElementById("percDistribuidor").value);
+                  let percImpostos = parseFloat(document.getElementById("percImpostos").value);
+
+                  let custoFinal = custoFabrica + (custoFabrica * (percDistribuidor / 100)) + (custoFabrica * (percImpostos / 100));
+
+                  document.getElementById("valorfinal").value = custoFinal;
+                }
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        Exercício Anterior
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        Próximo Exercício
+      </button>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
